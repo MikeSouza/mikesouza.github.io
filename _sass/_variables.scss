@@ -1,0 +1,22 @@
+//== Overrides for default Bootstrap variables
+//
+
+$gray-dark:               #67614f; // lighten($gray-base, 20%)
+$gray:                    #736c78; // lighten($gray-base, 33.5%)
+$gray-light:              #a1ae66; // lighten($gray-base, 46.7%)
+$gray-lighter:            #beb9a6; // lighten($gray-base, 93.5%)
+
+$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; // "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-size-base:          16px; // 14px
+
+$headings-font-weight:    800; // 500
+
+$brand-primary:           #768b4d; // darken(#428bca, 6.5%)
+
+$body-bg:                 #f0efeb;  // #fff
+
+$table-border-color:      $gray-dark; // #ddd
+
+$navbar-inverse-bg:       #3f412d; // #222
+
+$jumbotron-bg:            transparentize($gray-lighter, .2); // $gray-lighter

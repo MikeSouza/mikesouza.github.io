@@ -1,0 +1,23 @@
+# Site Settings
+author: "Michael Souza"
+description: "Coding, Corgis, and Running."
+email: contact@mikesouza.io
+nickname: "Mike"
+title: "No char** Attached"
+url: "http://mikesouza.io"
+
+# Post Settings
+
+
+# Page Settings
+header-title: "No <span class=\"code\">char**</span> Attached"
+header-img: img/site-header-bg.jpg
+
+# Date Format Settings
+short-date-format: "%m/%d/%y"
+long-date-format: "%B %-d, %Y"
+
+# Social Media Settings
+twitter_username: MikeS0uza
+github_username:  MikeSouza
+facebook_username:

@@ -1,0 +1,429 @@
+@import 'variables';
+@import 'bootstrap';
+@import 'mixins';
+
+$image-path: "../img/";
+$header-code-font-color: #00009f;
+$selection-color: #fff;
+$selection-bg: $brand-primary;
+$selection-image-bg: transparent;
+$tint-color: transparentize(#000, 0.5);
+
+/*
+ * General styles
+ */
+
+a {
+  img {
+    &:hover,
+    &:focus {
+      cursor: zoom-in;
+    }
+  }
+}
+
+p {
+  line-height: $line-height-computed;
+  margin: $grid-gutter-width 0;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+blockquote {
+  font-style: italic;
+}
+
+hr.small {
+  border: 4px white;
+  margin: 15px auto;
+  max-width: 100px;
+}
+
+/*
+ * Styles for navigation
+ */
+#nav {
+  font-weight: 800;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+  .nav {
+    li {
+      a {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $container-lg) {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    &.is-fixed {
+      /* when the user scrolls down, we hide the header right above the viewport */
+      border-bottom: 1px solid #222318;
+      position: fixed;
+      top: -61px;
+      -webkit-transition: -webkit-transform 0.3s;
+      -moz-transition: -moz-transform 0.3s;
+      transition: transform 0.3s;
+    }
+
+    &.is-visible {
+      /* if the user changes the scrolling direction, we show the header */
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -o-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+/*
+ * Styles for site, page, and post headers
+ */
+.site-header-bg {
+  background-image: linear-gradient(
+                  $tint-color,
+                  $tint-color
+  ),
+  url($image-path + "site-header-bg.jpg");
+}
+
+.intro-header {
+  background: no-repeat scroll top;
+  @include background-size(cover);
+  margin-bottom: 50px;
+
+  .code {
+    font-family: Inconsolata, 'Courier New', sans-serif;
+    color: $header-code-font-color;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  }
+
+  .site-heading-box,
+  .post-heading-box,
+  .page-heading-box {
+    /*background: transparentize($navbar-inverse-bg, .25);*/
+    padding: 4px 8px;
+    color: white;
+  }
+
+  .site-heading,
+  .post-heading,
+  .page-heading {
+    padding: 100px 0 50px;
+
+    @media only screen and (min-width: $container-sm) {
+      padding: 150px 0;
+    }
+  }
+
+  .site-heading,
+  .page-heading {
+    text-align: center;
+
+    h1 {
+      font-size: 48px;
+      margin-top: 0;
+    }
+
+    .subheading {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.1;
+      margin: 10px 0 0;
+    }
+
+    @media only screen and (min-width: $container-sm) {
+      h1 {
+        font-size: 64px;
+      }
+    }
+  }
+
+  .post-heading {
+    h1 {
+      font-size: 36px;
+    }
+
+    .subheading,
+    .meta {
+      display: block;
+      line-height: 1.1;
+    }
+
+    .subheading {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 10px 0 30px;
+    }
+
+    .meta {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    @media only screen and (min-width: $container-sm) {
+      h1 {
+        font-size: 48px;
+      }
+
+      .subheading {
+        font-size: 24px;
+      }
+
+      .meta {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+/*
+ * Styles for main index page footer
+ */
+footer {
+  .copyright {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/*
+ * Styles for post entries displayed on main index page
+ */
+
+.post-preview {
+  a {
+    color: $navbar-inverse-bg;
+
+    &:hover,
+    &:focus {
+      color: $gray-dark;
+      text-decoration: none;
+    }
+
+    > .post-title {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 0;
+      @media only screen and (min-width: $container-sm) {
+        font-size: 24px;
+      }
+    }
+
+    > .post-subtitle {
+      font-size: 16px;
+      font-weight: 300;
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+  }
+
+  .post-meta {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 5px;
+    margin-top: 0;
+    text-align: right;
+
+    > .post-author {
+      font-size: 14px;
+    }
+
+    > a {
+      /*color: $navbar-inverse-bg;*/
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        /*color: $navbar-inverse-bg;*/
+        text-decoration: underline;
+      }
+    }
+
+    @media only screen and (max-width: $container-lg) {
+      text-align: left;
+
+      > .post-author {
+        display: none;
+      }
+    }
+  }
+}
+
+/*
+ * Styles for post content
+ */
+.section-heading {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 60px;
+}
+
+.subsection-heading {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.caption {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+/*
+ * Styles for contact page
+ */
+.floating-label-form-group {
+  border-bottom: 1px solid $gray-lighter;
+  font-size: 16px;
+  margin-bottom: 0;
+  margin-left: ceil($grid-gutter-width / 2);
+  position: relative;
+
+  input,
+  textarea {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+    font-size: inherit;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    resize: none;
+  }
+
+  label {
+    display: none;
+    font-size: inherit;
+    line-height: 20px;
+    margin: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  &:not(:first-child) {
+    border-left: 1px solid $gray-lighter;
+    padding-left: 0px;
+  }
+}
+
+.floating-label-form-group-with-value {
+  label {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+.floating-label-form-group-with-focus {
+  label {
+    color: $brand-primary;
+  }
+}
+
+form {
+  .row:first-child {
+    .floating-label-form-group {
+      border-top: 1px solid $gray-lighter;
+    }
+  }
+}
+
+/*
+ * Styles for pagination on the main index page
+ */
+.pager {
+  margin: 20px 0 0;
+
+  li {
+    > a,
+    > span {
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 10px 5px;
+      text-transform: uppercase;
+
+      @media only screen and (min-width: $container-sm) {
+        font-size: 14px;
+        padding: 15px 25px;
+      }
+    }
+
+    > a:hover,
+    > a:focus {
+      color: white;
+      background-color: $brand-primary;
+      border: 1px solid $brand-primary;
+    }
+  }
+
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: $gray;
+      background-color: $gray-dark;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/*
+ * Styles for element selection
+ */
+::-moz-selection {
+  background: $selection-bg;
+  color: $selection-color;
+  text-shadow: none;
+}
+
+::selection {
+  background: $selection-bg;
+  color: $selection-color;
+  text-shadow: none;
+}
+
+img::selection {
+  background: $selection-image-bg;
+  color: $selection-color;
+}
+
+img::-moz-selection {
+  background: $selection-image-bg;
+  color: $selection-color;
+}
+
+body {
+  webkit-tap-highlight-color: $selection-bg;
+}
