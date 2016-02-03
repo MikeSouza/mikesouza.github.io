@@ -148,7 +148,7 @@ hr.small {
     .subheading {
       display: block;
       font-size: 24px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.1;
       margin: 10px 0 0;
     }
@@ -156,6 +156,10 @@ hr.small {
     @media only screen and (min-width: $container-sm) {
       h1 {
         font-size: 64px;
+      }
+
+      .subheading {
+        font-size: 32px;
       }
     }
   }

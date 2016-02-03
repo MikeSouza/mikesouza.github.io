@@ -7820,7 +7820,7 @@ hr.small {
 .intro-header .page-heading .subheading {
   display: block;
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
   margin: 10px 0 0;
 }
@@ -7829,6 +7829,10 @@ hr.small {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 64px;
+  }
+  .intro-header .site-heading .subheading,
+  .intro-header .page-heading .subheading {
+    font-size: 32px;
   }
 }
 
