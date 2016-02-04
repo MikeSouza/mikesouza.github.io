@@ -1,4 +1,10 @@
 {
+  "description": "mikesouza.io configuration.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikesouza/mikesouza.github.io"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",

@@ -10,10 +10,11 @@ var exec = require('child_process').exec;
 var paths = {
   bootstrap: 'node_modules/bootstrap-sass/assets',
   jquery: 'node_modules/jquery/dist',
-  sass: '_sass',
-  css: 'css',
-  fonts: 'fonts',
-  js: 'js'
+  assets: '_assets',
+  sass: '_assets/stylesheets',
+  css: 'assets/css',
+  fonts: 'assets/fonts',
+  js: 'assets/js'
 };
 
 var sassOptions = {
@@ -59,7 +60,7 @@ gulp.task('copy-bootstrap-js', function() {
 
 gulp.task('copy-bootstrap-fonts', function() {
   return gulp
-    .src(paths.bootstrap + '/fonts/**/*')
+    .src(paths.bootstrap + '/fonts/bootstrap/*')
     .pipe(gulp.dest(paths.fonts));
 });
 
@@ -69,7 +70,7 @@ gulp.task('copy-bootstrap-stylesheets', function(){
     .pipe(gulp.dest(paths.sass));
 });
 
-gulp.task('update', ['update-jquery', 'copy-jquery', 'update-bootstrap', 'copy-bootstrap-fonts', 'copy-bootstrap-js', 'copy-bootstrap-stylesheets']);
+gulp.task('update', ['update-jquery', 'copy-jquery', 'update-bootstrap', 'copy-bootstrap-fonts', 'copy-bootstrap-js']);
 
 /*
  * Build Tasks
@@ -87,17 +88,19 @@ gulp.task('build-sassdoc', function() {
 
   //noinspection JSUnresolvedFunction
   return gulp
-    .src(path.sass)
+    .src(paths.sass)
     .pipe(sassdoc(opts))
     .resume();
 });
 
 gulp.task('compress-js', function () {
   gulp.src(paths.js + '/custom.js')
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(rename({
+        suffix: '.min'
+      }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.js));
 });
 
@@ -111,7 +114,7 @@ gulp.task('jekyll-build', function (cb) {
 
 gulp.task('build-bootstrap', function () {
   return gulp
-    .src(paths.sass + '/bootstrap-custom.scss')
+    .src(paths.sass + '/custom.scss')
     //.pipe(sourcemaps.init())
     .pipe(sass(sassOptions))
     //.pipe(sourcemaps.write())

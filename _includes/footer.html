@@ -12,9 +12,9 @@
               </span>
             </a>
           </li>
-          {% if site.data.cfg.twitter_username %}
+          {% if site.data.cfg.twitter-username %}
           <li>
-            <a href="https://twitter.com/{{ site.data.cfg.twitter_username }}">
+            <a href="https://twitter.com/{{ site.data.cfg.twitter-username }}">
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -22,9 +22,9 @@
             </a>
           </li>
           {% endif %}
-          {% if site.data.cfg.facebook_username %}
+          {% if site.data.cfg.facebook-username %}
           <li>
-            <a href="https://www.facebook.com/{{ site.data.cfg.facebook_username }}">
+            <a href="https://www.facebook.com/{{ site.data.cfg.facebook-username }}">
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -32,9 +32,9 @@
             </a>
           </li>
           {% endif %}
-          {% if site.data.cfg.github_username %}
+          {% if site.data.cfg.github-username %}
           <li>
-            <a href="https://github.com/{{ site.data.cfg.github_username }}">
+            <a href="https://github.com/{{ site.data.cfg.github-username }}">
               <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -50,10 +50,10 @@
 </footer>
 
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/jquery.min.js " | prepend: site.data.cfg.asseturl }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/bootstrap.min.js " | prepend: site.data.cfg.asseturl }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ "/js/custom.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/custom.min.js " | prepend: site.data.cfg.asseturl }}"></script>

@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% capture header-bg %}
-background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});
+background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.data.cfg.imageurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});
 {% endcapture %}
 
 <!-- Post Header -->
