@@ -1,0 +1,48 @@
+---
+layout: page
+---
+
+{% capture ignore_whitespace %}
+  {% comment %} === Get the listing from all posts and sort them. === {% endcomment %}
+  {% for post in site.posts %}
+    {% assign post_listing = post[page.listing] | join:'|' | append:'|' %}
+    {% assign all_listings = all_listings | append:post_listing %}
+  {% endfor %}
+  {% assign all_listings = all_listings | split:'|' | sort %}
+
+  {% comment %} === Remove duplicates and invalid items from each listing === {% endcomment %}
+  {% assign listings = "" %}
+  {% for listing in all_listings %}
+    {% if listing != "" %}
+      {% if listings == "" %}
+        {% assign listings = listing | split:'|' %}
+      {% endif %}
+      {% unless listings contains listing %}
+        {% assign listings = listings | join:'|' | append:'|' | append:listing | split:'|' %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}{% assign ignore_whitespace = nil %}
+      <div class="listing">
+        <div class="listing-index">
+          <span>{% for listing in listings %}
+              <a href="#{{ listing | slugify }}" class="btn btn-sm {{ page.listing }}-link"> {{ listing }} </a>{% endfor %}
+          </span>
+        </div>
+        <hr>
+        <div class="listing-items">{% for listing in listings %}
+          <div class="container-fluid">
+            <div class="row">
+              <h4 id="{{ listing | slugify }}">{{ listing }}</h4>
+            </div>{% for post in site.posts %}{% if post[page.listing] contains listing %}
+            <div class="row listing-post-heading">
+              <span>
+                <h5>{{ post.date | date: site.data.cfg.short-date-format }} - <a href="{{ post.url }}">{{ post.title }}</a></h5>
+              </span>
+              <span>{% for listing in post[page.listing] %}
+                <a href="/{{ page.listing }}/#{{ listing | slugify }}" class="btn btn-xs {{ page.listing }}-link">{{ listing }}</a>{% endfor %}
+              </span>
+            </div>{% endif %}{% endfor %}
+          </div>{% endfor %}
+        </div>
+      </div>

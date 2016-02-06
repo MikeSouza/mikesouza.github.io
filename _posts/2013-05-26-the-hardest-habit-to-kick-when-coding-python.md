@@ -5,6 +5,8 @@ date: 2013-05-26T09:04:20+00:00
 author: Michael Souza
 layout: post
 categories:
+  - Uncategorized
+tags:
   - Python
 ---
 I _like_ Python, and I can see myself **loving it** the more I use it, especially since it's great for when I need to write a quick script to do something. But whenever I'm coding Python, I find it particularly difficult to break the habit of terminating statements with a semi-colon.

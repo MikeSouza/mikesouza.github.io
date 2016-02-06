@@ -1,6 +1,6 @@
 # Site Settings
 author: "Michael Souza"
-description: "Coding, Corgis, and Running."
+description: "Coding for fun, not profit."
 email: contact@mikesouza.io
 nickname: "Mike"
 title: "No char** Attached"
@@ -9,7 +9,7 @@ asseturl: "/assets"
 imageurl: "/assets/img"
 
 # Post Settings
-
+show-poster: false
 
 # Page Settings
 header-title: "No <span class=\"code\">char**</span> Attached"

@@ -2,10 +2,16 @@
 layout: default
 ---
 
-{% capture header-bg %}
-background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.data.cfg.imageurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});
-{% endcapture %}
+{% capture ignore_whitespace %}
+  {% capture header-bg %}background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.data.cfg.imageurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});{% endcapture %}
 
+  {% if site.data.cfg.show-poster == true %}
+    {% capture post_author %}Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.data.cfg.author }}{% endif %}{% endcapture %}
+  {% endif %}
+  {% assign post_date = page.date | date: site.data.cfg.short-date-format %}
+  {% capture post_categories %}{% for category in page.categories %}<a href="/categories/#{{ category | slugify }}" class="btn btn-sm categories-link">{{ category }}</a>{% endfor %}{% endcapture %}
+  {% capture post_tags %}{% for tag in page.tags %}<a href="/tags/#{{ tag | slugify }}" class="btn btn-sm tags-link">{{ tag }}</a>{% endfor %}{% endcapture %}
+{% endcapture %}{% assign ignore_whitespace = nil %}
 <!-- Post Header -->
 <header class="intro-header" style="{{ header-bg }}">
   <div class="container">
@@ -13,11 +19,14 @@ background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0,
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
           <div class="post-heading-box">
-            <h1>{{ page.title }}</h1>
-            {% if page.subtitle %}
-            <h2 class="subheading">{{ page.subtitle }}</h2>
-            {% endif %}
-            <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.data.cfg.author }}{% endif %} on {{ page.date | date: site.data.cfg.long-date-format }}</span>
+            <h1>{{ page.title }}</h1>{% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>{% endif %}
+            <div class="meta">
+              <span>{{ post_date }} • </span>{% if post_author %}
+              <span>{{ post_author }} • </span>{% endif %}{% if post_categories %}
+              <span>{{ post_categories }} • </span>{% endif %}{% if post_tags %}
+              <span>{{ post_tags }}</span>{% endif %}
+            </div>
           </div>
         </div>
       </div>
@@ -30,27 +39,17 @@ background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0,
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
         {{ content }}
-
         <hr>
-
-        <ul class="pager">
-          {% if page.previous.url %}
+        <ul class="pager">{% if page.previous.url %}
           <li class="previous">
             <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-          </li>
-          {% endif %}
-          {% if page.next.url %}
+          </li>{% endif %}{% if page.next.url %}
           <li class="next">
             <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-          </li>
-          {% endif %}
+          </li>{% endif %}
         </ul>
-
       </div>
     </div>
   </div>
 </article>
-
-<hr>

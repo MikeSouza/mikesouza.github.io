@@ -5,6 +5,8 @@ author: Michael Souza
 layout: post
 categories:
   - Uncategorized
+tags:
+  - C#
 ---
 {% highlight C# %}
 namespace HelloWorld

@@ -5,6 +5,8 @@ author: Michael Souza
 layout: post
 categories:
   - Uncategorized
+tags:
+  - Chrome
 ---
 I was reading through the [Chrome extensions API](https://developer.chrome.com/extensions/storage.html#limits), and came across this amusing reference to the (in)famous ["Series of Tubes"](http://en.wikipedia.org/wiki/Series_of_tubes) speech by the now deceased former Alaskan Senator [Ted Stevens](http://en.wikipedia.org/wiki/Ted_Stevens):
 

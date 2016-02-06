@@ -1,5 +1,6 @@
 <!-- Footer -->
 <footer>
+  <hr>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -7,41 +8,35 @@
           <li>
             <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
               <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
               </span>
             </a>
-          </li>
-          {% if site.data.cfg.twitter-username %}
+          </li>{% if site.data.cfg.twitter-username %}
           <li>
             <a href="https://twitter.com/{{ site.data.cfg.twitter-username }}">
               <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
               </span>
             </a>
-          </li>
-          {% endif %}
-          {% if site.data.cfg.facebook-username %}
+          </li>{% endif %}{% if site.data.cfg.facebook-username %}
           <li>
             <a href="https://www.facebook.com/{{ site.data.cfg.facebook-username }}">
               <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
               </span>
             </a>
-          </li>
-          {% endif %}
-          {% if site.data.cfg.github-username %}
+          </li>{% endif %}{% if site.data.cfg.github-username %}
           <li>
             <a href="https://github.com/{{ site.data.cfg.github-username }}">
               <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
               </span>
             </a>
-          </li>
-          {% endif %}
+          </li>{% endif %}
         </ul>
         <p class="copyright">Copyright &copy; {{ site.data.cfg.author }} {{ site.time | date: '%Y' }}</p>
       </div>

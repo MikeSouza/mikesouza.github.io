@@ -5,6 +5,9 @@ author: Michael Souza
 layout: post
 categories:
   - Uncategorized
+tags:
+  - Chrome
+  - Firefox
 ---
 Over the last few years I've made a couple attempts to switch from using Firefox as my primary browser to Chrome.  Each time I've attempted to transition to Chrome, I've found myself crawling right back to Firefox.  Granted, I've been a loyal user of Firefox since version 1.0, and in the past have done my fair share of evangelizing its adoption to those willing to listen.  However, in the advent of Firefox's rapid release schedule, the last two releases (Firefox 17 & 18), drove me to give Chrome another try.  Why?  Because in the last several months I've been required to use another browser in order to properly use or view some website more times than I can remember in the span of the last ~9 years, all due to the latest release of Firefox breaking something that worked in the previous release.  Not cool.
 

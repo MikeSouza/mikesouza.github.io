@@ -1,56 +1,33 @@
 ---
 layout: page
-description: "Coding for fun, not profit."
-show-poster: true
 ---
-
-{% for post in paginator.posts %}
-<div class="post-preview">
-  <div class="row">
-    <div class="col-lg-2">
-      <p class="post-meta">
-        {{ post.date | date: site.data.cfg.short-date-format }}
-      </p>
-      <p class="post-meta">
-        {% if page.show-poster == true %}
-        <span class="post-author">Posted By</span>
-        <a class="post-author">
-          {% if post.author and post.author != site.data.cfg.author %}
-          {{ post.author }}
-          {% elsif site.data.cfg.nickname %}
-          {{ site.data.cfg.nickname }}
-          {% endif %}
-        </a>
-        {% endif %}
-      </p>
-    </div>
-    <div class="col-lg-10">
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">{{ post.title }}</h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-        {% endif %}
-      </a>
-      <p>{{ post.excerpt }}</p>
-    </div>
-  </div>
-</div>
-<hr>
-
-{% endfor %}
-
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-  {% if paginator.previous_page %}
-  <li class="previous">
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-  </li>
-  {% endif %}
-</ul>
-{% endif %}
+{% for post in paginator.posts %}<div class="post-preview">
+        <div class="row">
+          <div class="col-lg-2">
+            <h2 class="post-meta">{{ post.date | date: site.data.cfg.short-date-format }}</h2>{% if site.data.cfg.show-poster == true %}
+            <p class="post-meta">
+              <span class="post-author">Posted By </span><a class="post-author">{% if post.author and post.author != site.data.cfg.author %}{{ post.author }}{% elsif site.data.cfg.nickname %}{{ site.data.cfg.nickname }}{% endif %}</a>
+            </p>{% endif %}
+          </div>
+          <div class="col-lg-10">
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              <h4 class="post-title">{{ post.title }}</h4>{% if post.subtitle %}
+              <h5 class="post-subtitle">{{ post.subtitle }}</h5>{% endif %}
+            </a>
+            <p>
+              {{ post.excerpt }}
+            </p>
+          </div>
+        </div>
+      </div>{% unless forloop.last %}
+      <hr>{% endunless %}
+      {% endfor %}
+      {% if paginator.total_pages > 1 %}<!-- Pager -->
+      <ul class="pager">{% if paginator.previous_page %}
+        <li class="previous">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        </li>{% endif %}{% if paginator.next_page %}
+        <li class="next">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        </li>{% endif %}
+      </ul>{% endif %}

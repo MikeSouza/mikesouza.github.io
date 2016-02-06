@@ -136,7 +136,7 @@ gulp.task('jekyll-serve', function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('_sass/*.scss', ['build-bootstrap']);
+  gulp.watch(paths.sass + '/*.scss', ['build-bootstrap']);
 });
 
 gulp.task('debug', ['watch', 'jekyll-serve']);

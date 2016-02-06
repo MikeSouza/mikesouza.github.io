@@ -4,9 +4,10 @@ date: 2013-05-17T03:10:40+00:00
 author: Michael Souza
 layout: post
 categories:
+  - FindZilla
+tags:
   - Chrome
   - CSS3
-  - FindZilla
   - GitHub
   - HTML5
   - JavaScript

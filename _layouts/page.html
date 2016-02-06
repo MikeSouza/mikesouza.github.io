@@ -2,10 +2,7 @@
 layout: default
 ---
 
-{% capture header-bg %}
-background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.data.cfg.imageurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});
-{% endcapture %}
-
+{% capture header-bg %}background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), {% endunless %} url({{ site.data.cfg.imageurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.data.cfg.header-img }}{% endif %});{% endcapture %}
 <!-- Page Header -->
 <header class="intro-header" style="{{ header-bg }}">
   <div class="container">
@@ -15,7 +12,7 @@ background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0,
           <div class="site-heading-box">
             <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.data.cfg.header-title }}{% endif %}</h1>
             <hr class="small">
-            <span class="subheading">{{ page.description }}</span>
+            <span class="subheading">{% if page.description %}{{ page.description }}{% else %}{% unless page.title %}{{ site.data.cfg.description }}{% endunless %}{% endif %}</span>
           </div>
         </div>
       </div>
@@ -31,5 +28,3 @@ background-image: {% unless page.header-gradient %}linear-gradient(rgba(0, 0, 0,
     </div>
   </div>
 </div>
-
-<hr>
