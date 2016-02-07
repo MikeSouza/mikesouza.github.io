@@ -7,6 +7,7 @@
   <title>{% if page.title %}{{ page.title }} - {{ site.data.cfg.title }}{% else %}{{ site.data.cfg.title }}{% endif %}</title>
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.data.cfg.url }}">
+  <link rel="image_src" href="{{ site.data.cfg.imageurl }}/{% if page.image-src %}{{ page.image-src }}{% else %}{{ site.data.cfg.image-src }}{% endif %}" />
 
   <!-- Bootstrap Custom CSS -->
   <link rel="stylesheet" href="{{ "/css/custom.css" | prepend: site.data.cfg.asseturl }}">

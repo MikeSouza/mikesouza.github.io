@@ -14,6 +14,7 @@ show-poster: false
 # Page Settings
 header-title: "No <span class=\"code\">char**</span> Attached"
 header-img: site-header-bg.jpg
+image-src: corgi-flowers.jpg
 
 # Date Format Settings
 short-date-format: "%m/%d/%y"
